@@ -1,0 +1,328 @@
+/* 主题变量定义 */
+:root[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --highlight-color: #64748B;
+    --highlight-color-rgb: 100, 116, 139;
+    --card-bg: rgba(245, 245, 245, 0.8);
+    --card-border: rgba(0, 0, 0, 0.1);
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="dark"] {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #999999;
+    --highlight-color: #64748B;
+    --highlight-color-rgb: 100, 116, 139;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(0, 0, 0, 0.8);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 基础样式和过渡效果 */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 应用主题变量 */
+/* body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+} */
+
+/* 更新导航栏样式 */
+nav {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(8px);
+}
+
+/* 更新卡片样式 */
+.blog-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+/* 文本颜色 */
+.text-highlight {
+    color: var(--highlight-color);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #64748B;
+    border-radius: 4px;
+}
+
+/* 导航链接样式 */
+.nav-link {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #64748B;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #64748B;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* 按钮样式 */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #64748B;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(100, 116, 139, 0.4);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: white;
+    border: 2px solid #64748B;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background: #64748B;
+    transform: translateY(-2px);
+}
+
+/* 网格背景 */
+.grid-background {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: top;
+    animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 32px;
+    }
+}
+
+/* Bento Grid 布局 */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.bento-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.bento-item:hover {
+    transform: translateY(-4px);
+    border-color: #64748B;
+    box-shadow: 0 4px 20px rgba(100, 116, 139, 0.2);
+}
+
+.bento-item.large {
+    grid-column: span 6;
+}
+
+.bento-item.medium {
+    grid-column: span 4;
+}
+
+.bento-item.small {
+    grid-column: span 3;
+}
+
+@media (max-width: 1024px) {
+    .bento-item.large {
+        grid-column: span 12;
+    }
+    
+    .bento-item.medium {
+        grid-column: span 6;
+    }
+    
+    .bento-item.small {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-item.medium,
+    .bento-item.small {
+        grid-column: span 12;
+    }
+}
+
+/* 技术标签 */
+.tech-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(100, 116, 139, 0.1);
+    color: #64748B;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* 滚动动画 */
+[data-scroll] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+[data-scroll].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    h1 {
+        font-size: 3rem !important;
+    }
+    
+    .bento-grid {
+        padding: 1rem;
+        gap: 1rem;
+    }
+}
+
+/* 雷达图和技能进度条样式 */
+.skill-radar-progress-bar {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background-color: var(--bg-secondary);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-radar-progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--highlight-color);
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.5s ease-out;
+}
+
+.radar-chart-animation {
+    animation: radarPulse 2s ease-in-out infinite;
+}
+
+@keyframes radarPulse {
+    0%, 100% { 
+        filter: drop-shadow(0 0 5px rgba(var(--highlight-color-rgb), 0.5));
+    }
+    50% { 
+        filter: drop-shadow(0 0 15px rgba(var(--highlight-color-rgb), 0.8));
+    }
+}
+
+/* 雷达图加载动画 */
+.radar-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 6px solid var(--bg-secondary);
+    border-radius: 50%;
+    border-top-color: var(--highlight-color);
+    animation: radarSpin 1s linear infinite;
+}
+
+@keyframes radarSpin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.radar-chart-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+} 

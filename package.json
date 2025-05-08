@@ -1,0 +1,16 @@
+{
+  "name": "hexo-theme-rick",
+  "version": "1.0.0",
+  "description": "一个简洁现代的Hexo主题，基于原有的HTML页面转换而来",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "rick"
+  ],
+  "author": "RickTsui",
+  "license": "MIT"
+} 

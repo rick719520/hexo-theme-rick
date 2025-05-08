@@ -1,0 +1,48 @@
+# RICK Theme 主题配置文件
+
+# 主题版本
+version: 1.0.0
+
+# 导航栏配置
+menu:
+  首页: /
+  归档: /archives
+  分类: /categories
+  标签: /tags
+  自定义菜单: 
+    text: 自定义菜单
+    items:
+      示例子菜单: /example
+
+# 主题颜色配置
+colors:
+  highlight: '#64748B'
+  highlight_rgb: '100, 116, 139'
+
+# 主题模式配置
+theme:
+  auto_mode: true     # 是否自动切换主题模式
+  default: dark       # 默认主题模式: dark或light
+
+# 站点信息
+author_image: /images/default-avatar.jpg
+favicon: /favicon.ico
+
+# 社交媒体链接
+social:
+  github: https://github.com/yourusername
+  twitter: https://twitter.com/yourusername
+  weibo: https://weibo.com/yourusername
+
+# 底部信息
+footer:
+  copyright: true  # 显示版权信息
+  since: 2023      # 站点起始年份
+  powered: true    # 显示Powered by Hexo
+  theme: true      # 显示主题信息
+
+# 其他功能配置
+show_count: true     # 是否显示文章计数
+toc: true            # 是否启用目录
+word_count: true     # 是否启用字数统计
+reading_time: true   # 是否启用阅读时间预估 
